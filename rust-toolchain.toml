@@ -1,0 +1,4 @@
+[toolchain]
+# ruint@1.18 needs rustc >= 1.90; stwo@2.2 needs nightly (array_chunks, portable_simd).
+# Pin before 2025-07-30 when array_chunks stabilized and broke stwo 2.2's feature gates.
+channel = "nightly-2025-07-25"

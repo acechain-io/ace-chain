@@ -1,0 +1,16 @@
+{
+  "chain_id": 122766,
+  "rpc_port": 18545,
+  "rpc_bind_addr": "0.0.0.0",
+  "p2p_port": 31333,
+  "bootnodes": [],
+  "bootstrap_peers": [
+    "/dns4/bootnode.testnet.acechain.io/tcp/31333"
+  ],
+  "validator": false,
+  "validator_key": null,
+  "validator_signing_seed": null,
+  "proof_mode": "dev-stark",
+  "genesis_path": "/config/genesis.json",
+  "data_dir": "/data"
+}

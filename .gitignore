@@ -1,0 +1,52 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+LOG
+nohup.out
+
+# Editors
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Rust build output
+target/
+
+# JavaScript / Hardhat dependencies and build output
+node_modules/
+dist/
+build/
+artifacts/
+cache/
+coverage/
+coverage.json
+gas-report.txt
+
+# Environment and local secrets
+.env
+.env.local
+.env.*.local
+*-keypair.json
+faucet-keypair.json
+**/p2p_identity.key
+**/identity.json
+
+# Local node data
+data/
+test-ledger/
+.solana-ledger/
+senders.json
+**/senders.json
+
+# LaTeX build artifacts
+*.aux
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz

@@ -1,0 +1,26 @@
+[package]
+name = "ace-model"
+version = "0.1.0"
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "Account model, Merkle state tree, and persistent storage for ACE Chain"
+
+[features]
+default = ["test-utils"]
+test-utils = []
+persistence = ["rocksdb", "bincode"]
+
+[dependencies]
+ace-runtime = { workspace = true }
+sha2 = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+hex = { workspace = true }
+rocksdb = { workspace = true, optional = true }
+bincode = { workspace = true, optional = true }
+tracing = { workspace = true }
+
+[dev-dependencies]
+tempfile = "3"

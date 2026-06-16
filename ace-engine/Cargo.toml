@@ -1,0 +1,24 @@
+[package]
+name = "ace-engine"
+version = "0.1.0"
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "Transaction execution engine with state transitions for ACE Chain"
+
+[features]
+default = ["test-utils"]
+test-utils = ["ace-runtime/test-utils", "ace-model/test-utils", "ace-runtime/devnet"]
+
+[dependencies]
+ace-runtime = { workspace = true }
+ace-model = { workspace = true }
+sha2 = { workspace = true }
+sha3 = "0.10"
+k256 = { version = "0.13", features = ["ecdsa"] }
+ripemd = "0.1"
+serde = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+hex = { workspace = true }
+rayon = { workspace = true }

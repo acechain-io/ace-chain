@@ -1,0 +1,33 @@
+[package]
+name = "ace-runtime"
+version = "0.1.0"
+edition = "2021"
+authors.workspace = true
+description = "Reference implementation of the ACE Runtime core protocol — a ZKP-native blockchain runtime with sub-second cryptographic finality"
+license.workspace = true
+
+[features]
+## MockProver is only available with "test-utils" — production builds
+## should provide a real proof verifier and, when needed, an external proof producer.
+default = []
+test-utils = []
+devnet = []
+stark = ["dep:zk-ace", "dep:rand_chacha"]
+prover = ["stark"]
+
+[dependencies]
+sha2 = "0.10"
+hkdf = "0.12"
+hmac = { workspace = true }
+subtle = "2.6"
+rand = "0.8"
+serde = { version = "1", features = ["derive"] }
+bincode = "1.3"
+hex = "0.4"
+rayon = "1.10"
+thiserror = "2"
+zk-ace = { package = "zk-ace", git = "https://github.com/acechain-io/zk-ace.git", optional = true }
+rand_chacha = { version = "0.3", optional = true }
+ed25519-dalek = { workspace = true }
+k256 = { version = "0.13", features = ["ecdsa"] }
+fips204 = { version = "0.4", default-features = false, features = ["ml-dsa-44", "default-rng"] }

@@ -1,0 +1,67 @@
+[workspace]
+resolver = "2"
+members = [
+    "ace-runtime",
+    "ace-model",
+    "ace-engine",
+    "ace-n-vm",
+    "ace-mvm",
+    "ace-consensus",
+    "ace-mempool",
+    "ace-p2p",
+    "ace-rpc",
+    "ace-node",
+    "ace-identity",
+    "ace-hfi-pay",
+    "ace-defi",
+    "ace-liquid",
+    "ace-defi-relayer",
+    "ace-vadar",
+]
+
+[workspace.package]
+edition = "2021"
+authors = ["Jian Sheng Wang <jason@yeah.app>"]
+license = "Apache-2.0"
+
+[workspace.dependencies]
+# Internal crates
+ace-runtime = { path = "ace-runtime", default-features = false }
+ace-model = { path = "ace-model", default-features = false }
+ace-engine = { path = "ace-engine", default-features = false }
+ace-n-vm = { path = "ace-n-vm", default-features = false }
+ace-mvm = { path = "ace-mvm", default-features = false }
+ace-consensus = { path = "ace-consensus", default-features = false }
+ace-mempool = { path = "ace-mempool", default-features = false }
+ace-p2p = { path = "ace-p2p" }
+ace-rpc = { path = "ace-rpc" }
+ace-identity = { path = "ace-identity" }
+ace-hfi-pay = { path = "ace-hfi-pay" }
+ace-defi = { path = "ace-defi" }
+ace-liquid = { path = "ace-liquid" }
+ace-defi-relayer = { path = "ace-defi-relayer" }
+ace-vadar = { path = "ace-vadar" }
+mev-ace-core = { git = "https://github.com/acechain-io/mev-ace.git", default-features = false }
+
+# Shared external dependencies
+sha2 = "0.10"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+tokio = { version = "1", features = ["full"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+hex = "0.4"
+rand = "0.8"
+parking_lot = "0.12"
+revm = { version = "19", default-features = false, features = ["std"] }
+rayon = "1.10"
+ed25519-dalek = { version = "2", features = ["rand_core"] }
+hmac = "0.12"
+rocksdb = { version = "0.22", default-features = false, features = ["snappy"] }
+bincode = "1"
+sysinfo = "0.32"
+zeroize = "1.8"
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+metrics = "0.24"
+metrics-exporter-prometheus = { version = "0.16", default-features = false, features = ["http-listener"] }

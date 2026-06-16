@@ -1,0 +1,66 @@
+[package]
+name = "ace-node"
+version = "0.1.0"
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "ACE Chain node binary — single-node devnet"
+
+[lib]
+doctest = false
+
+[[bin]]
+name = "ace-node"
+path = "src/main.rs"
+
+[[bin]]
+name = "ace-prover-companion"
+path = "src/bin/ace-prover-companion.rs"
+
+[features]
+default = ["persistence", "stark"]
+devnet = ["ace-runtime/test-utils", "ace-runtime/devnet", "ace-mempool/test-utils", "ace-rpc/devnet"]
+stark = ["ace-runtime/stark"]
+devnet-prover = ["devnet", "prover"]
+prover = ["ace-runtime/prover", "stark"]
+persistence = ["ace-model/persistence", "ace-rpc/persistence"]
+# Enable Tri-VM mock precompiles/syscalls for dev/test. Omit for production so they return Err.
+mock-precompile-n-vm = ["ace-n-vm/mock-precompile"]
+
+[dependencies]
+ace-runtime = { workspace = true, default-features = false }
+ace-model = { workspace = true, default-features = false }
+ace-identity = { workspace = true }
+ace-engine = { workspace = true, default-features = false }
+ace-n-vm = { workspace = true, default-features = false }
+ace-consensus = { workspace = true, default-features = false }
+mev-ace-core = { workspace = true }
+ace-mempool = { workspace = true, default-features = false }
+ace-p2p = { workspace = true }
+ace-rpc = { workspace = true }
+ace-defi = { workspace = true }
+ace-liquid = { workspace = true }
+ace-hfi-pay = { workspace = true, default-features = false }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+hex = { workspace = true }
+sha2 = { workspace = true }
+ed25519-dalek = { workspace = true }
+parking_lot = { workspace = true }
+clap = { version = "4", features = ["derive", "env"] }
+anyhow = "1"
+sysinfo = { workspace = true }
+bincode = { workspace = true }
+rayon = { workspace = true }
+zeroize = { workspace = true }
+rpassword = "7"
+metrics = { workspace = true }
+metrics-exporter-prometheus = { workspace = true }
+reqwest = { version = "0.12", features = ["json"] }
+
+[dev-dependencies]
+tempfile = "3"
+reqwest = { version = "0.12", features = ["blocking", "json"] }

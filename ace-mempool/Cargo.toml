@@ -1,0 +1,29 @@
+[package]
+name = "ace-mempool"
+version = "0.1.0"
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "Transaction pool with attestation-based validation for ACE Chain"
+
+[features]
+default = ["test-utils"]
+test-utils = ["ace-runtime/test-utils", "ace-model/test-utils"]
+stark = ["ace-runtime/stark"]
+
+[dependencies]
+ace-engine = { workspace = true, default-features = false }
+ace-runtime = { workspace = true }
+ace-model = { workspace = true }
+ace-n-vm = { workspace = true, default-features = false }
+ace-defi = { workspace = true }
+sha2 = { workspace = true }
+serde = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+hex = { workspace = true }
+parking_lot = { workspace = true }
+metrics = { workspace = true }
+
+[dev-dependencies]
+ed25519-dalek = { workspace = true }

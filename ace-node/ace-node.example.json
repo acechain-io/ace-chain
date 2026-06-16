@@ -1,0 +1,14 @@
+{
+  "chain_id": 2766,
+  "rpc_port": 8545,
+  "p2p_port": 30333,
+  "bootnodes": [],
+  "validator": true,
+  "validator_key": "0101010101010101010101010101010101010101010101010101010101010101",
+  "proof_mode": "production",
+  "prover_companion_bin": "/usr/local/bin/ace-prover-companion",
+  "prover_companion_args": [],
+  "prover_companion_timeout_ms": 5000,
+  "genesis_path": "genesis.example.json",
+  "data_dir": "./data/node-1"
+}

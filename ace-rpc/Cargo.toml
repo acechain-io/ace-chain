@@ -1,0 +1,52 @@
+[package]
+name = "ace-rpc"
+version = "0.1.0"
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "JSON-RPC API server for ACE Chain"
+
+[dependencies]
+ace-runtime = { workspace = true }
+ace-model = { workspace = true }
+ace-engine = { workspace = true }
+ace-mempool = { workspace = true }
+ace-p2p = { workspace = true }
+ace-n-vm = { workspace = true, default-features = false }
+ace-defi = { workspace = true }
+ace-liquid = { workspace = true }
+ace-hfi-pay = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }
+hex = { workspace = true }
+sha2 = { workspace = true }
+hmac = { workspace = true }
+parking_lot = { workspace = true }
+bincode = { workspace = true }
+jsonrpsee = { version = "0.24", features = ["server", "macros"] }
+tower = "0.4"
+tower-http = { version = "0.5", features = ["cors"] }
+revm = { workspace = true }
+# Raw tx format detection and parsing (EVM/Solana/Bitcoin)
+rlp = "0.5"
+tiny-keccak = { version = "2", features = ["keccak"] }
+k256 = { version = "0.13", features = ["ecdsa"] }
+# Solana Ed25519 signature verification
+ed25519-dalek = { workspace = true }
+bs58 = "0.5"
+base64 = "0.22"
+rand = "0.8"
+reqwest = { workspace = true, features = ["blocking"] }
+zk-ace = { package = "zk-ace", git = "https://github.com/acechain-io/zk-ace.git", optional = true }
+ark-bn254 = "0.4"
+
+[features]
+devnet = []
+persistence = ["ace-model/persistence"]
+stark = ["ace-runtime/stark", "dep:zk-ace"]
+
+[dev-dependencies]
+tempfile = "3"

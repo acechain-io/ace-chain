@@ -1,0 +1,57 @@
+{
+  "accounts": [
+    {
+      "id_com": "0101010101010101010101010101010101010101010101010101010101010101",
+      "balance": 1000000000,
+      "auth_pubkey": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    {
+      "id_com": "0202020202020202020202020202020202020202020202020202020202020202",
+      "balance": 500000000,
+      "auth_pubkey": "2222222222222222222222222222222222222222222222222222222222222222"
+    },
+    {
+      "id_com": "0303030303030303030303030303030303030303030303030303030303030303",
+      "balance": 250000000,
+      "auth_pubkey": "3333333333333333333333333333333333333333333333333333333333333333"
+    }
+  ],
+  "validators": [
+    {
+      "id_com": "0101010101010101010101010101010101010101010101010101010101010101",
+      "stake": 100,
+      "signing_pubkey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "capabilities": {
+        "evm_core": true,
+        "btc_payments": true,
+        "solana_light": true
+      }
+    },
+    {
+      "id_com": "0202020202020202020202020202020202020202020202020202020202020202",
+      "stake": 80,
+      "signing_pubkey": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "capabilities": {
+        "evm_core": true,
+        "btc_payments": true,
+        "solana_light": true
+      }
+    },
+    {
+      "id_com": "0303030303030303030303030303030303030303030303030303030303030303",
+      "stake": 50,
+      "signing_pubkey": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "capabilities": {
+        "evm_core": true,
+        "btc_payments": true,
+        "solana_light": false
+      }
+    }
+  ],
+  "genesis_time_ms": 1774071000000,
+  "chain_id": 2766,
+  "native_token": {
+    "symbol": "ACE",
+    "decimals": 9
+  }
+}

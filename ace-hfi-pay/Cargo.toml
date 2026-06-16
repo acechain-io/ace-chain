@@ -1,0 +1,48 @@
+[package]
+name = "ace-hfi-pay"
+version = "0.1.0"
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "HFIPay: Privacy-preserving payments to human-friendly identifiers"
+
+[features]
+default = ["test-utils"]
+test-utils = []
+arweave = ["dep:reqwest", "dep:tokio"]
+
+[dependencies]
+ace-runtime = { workspace = true }
+ace-model = { workspace = true }
+ace-engine = { workspace = true }
+ace-n-vm = { workspace = true, default-features = false }
+
+sha2 = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+hex = { workspace = true }
+rand = { workspace = true }
+reqwest = { workspace = true, optional = true }
+tokio = { workspace = true, optional = true }
+ark-ff = "0.4"
+ark-bn254 = "0.4"
+ark-groth16 = "0.4"
+ark-snark = "0.4"
+ark-relations = "0.4"
+ark-r1cs-std = "0.4"
+ark-serialize = "0.4"
+ark-std = "0.4"
+
+[[bin]]
+name = "hfipay-claim-groth16-setup"
+path = "src/bin/hfipay_claim_groth16_setup.rs"
+
+[[bin]]
+name = "hfipay-claim-groth16-check"
+path = "src/bin/hfipay_claim_groth16_check.rs"
+
+[dev-dependencies]
+ed25519-dalek = { workspace = true }
+tempfile = "3"

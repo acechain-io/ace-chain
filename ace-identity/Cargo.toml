@@ -1,0 +1,21 @@
+[package]
+name = "ace-identity"
+version = "0.1.0"
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "ACE-GF identity integration for ACE Chain nodes — thin wrapper around acegf-wallet"
+
+[dependencies]
+# Core: delegate all crypto to acegf-wallet
+acegf = { package = "ace-gf", git = "https://github.com/acechain-io/acegf-wallet.git", default-features = false }
+serde = { workspace = true }
+sha2 = { workspace = true }
+ed25519-dalek = { workspace = true }
+fips204 = { version = "0.4", default-features = false, features = ["ml-dsa-44", "default-rng"] }
+zeroize = { workspace = true }
+hex = { workspace = true }
+
+[dev-dependencies]
+ace-runtime = { workspace = true }
+bip39 = "2.2"
